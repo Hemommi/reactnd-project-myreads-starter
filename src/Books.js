@@ -1,19 +1,31 @@
-import React,{ Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types' 
-import BookShelf from './BookShelf.js'
+/*import BookShelf from './BookShelf.js'*/
 import './App.css'
+import * as BooksAPI from './BooksAPI'
+
+const bookShelfTitle = [
+    {
+    id:"currentlyReading", 
+    name: "Currently Reading"
+    },
+    {
+     id: "wantToRead",
+     name: "Want to Read"
+    },
+    {
+     id: "Read",
+     name: "Read"
+    }
+]; 
 
 class Books extends React.Component {
-    static propTypes={
+    /*static propTypes={
         books: PropTypes.array.isRequired,
-        changeShelf: PropTypes.func.isRequired
-    }
+    }*/
     state={}
     render() {
-        const bookShelfTitle = [{id:"currentlyReading", name: "Currently Reading"},
-                                {id: "wantToRead", name: "Want to Read"},
-                                {id: "Read", name: "Read"}];     
-        const {books, changeShelf} = this.props         
+       /* const {books, onShelf} = this.props */        
         return (
             <div className="list-books">
                 <div className="list-books-title" >
@@ -21,20 +33,16 @@ class Books extends React.Component {
                 </div>
                 <div className="list-books-content">
                 <div>
-                    {bookshelfTitle.map((bookshelfTitle) => (
-                    <div className="bookshelf" key = {bookshelfTitle.id}>
-                    <h2 className="bookshelf-title">{bookshelfTitle.name}</h2>
-                    <div className="bookshelf-books">
-                        <Bookshelf
-                            books = {booksOnShelf}
-                            changeShelf = {changeShelf}
-                        />
+                    {this.props.bookShelfTitle.map((bookShelfTitle) => (
+                        <div className="bookshelf" key = {bookShelfTitle.id}>
+                        <h2 className="bookshelf-title">{bookShelfTitle.name}</h2>
+                        <div className="bookshelf-books">
                         </div>
                     </div>
                     ))}
-                    </div> 
-               </div>
+                </div> 
             </div>
+        </div>
             
 
         )
