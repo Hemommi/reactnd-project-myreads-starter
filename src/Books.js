@@ -4,26 +4,11 @@ import React from 'react'
 import './App.css'
 /*import * as BooksAPI from './BooksAPI'*/
 
-const bookShelfTitle = [
-    {
-    id:"currentlyReading", 
-    name: "Currently Reading"
-    },
-    {
-     id: "wantToRead",
-     name: "Want to Read"
-    },
-    {
-     id: "read",
-     name: "Read"
-    }
-]; 
-
 class Books extends React.Component {
     /*static propTypes={
         books: PropTypes.array.isRequired,
     }*/
-    state={}
+    state = {showSearchPage: false}
     render() {
        /* const {books, onShelf} = this.props */        
         return (
@@ -53,8 +38,6 @@ class Books extends React.Component {
                 <div className="list-books-title" >
                     <h1>MyRead</h1>
                 </div>
-                <div className="list-books-content">
-                </div> 
             </div>
         )}
         </div>

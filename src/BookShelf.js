@@ -1,6 +1,22 @@
 import React from 'react'
 import './App.css'
 import Books from './Books'
+import PropTypes from 'prop-types'
+
+const bookShelfTitle = [
+    {
+    id:"currentlyReading", 
+    name: "Currently Reading"
+    },
+    {
+     id: "wantToRead",
+     name: "Want to Read"
+    },
+    {
+     id: "read",
+     name: "Read"
+    }
+];
 
 class BookShelf extends React.Component {
 
