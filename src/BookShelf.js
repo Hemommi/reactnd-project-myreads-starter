@@ -1,9 +1,10 @@
 import React from 'react'
 import './App.css'
-import Books from './Books'
 import PropTypes from 'prop-types'
+/*import Books from './Books'*/
+/*import * as BooksAPI from './BooksAPI'*/
 
-const bookShelfTitle = [
+const booksShelfTitle = [
     {
     id:"currentlyReading", 
     name: "Currently Reading"
@@ -19,25 +20,25 @@ const bookShelfTitle = [
 ];
 
 class BookShelf extends React.Component {
-
+    static propTypes={
+        books: PropTypes.array.isRequired,
+    }
     state = {};
-    
+    /* const {books, onShelf} = this.props */ 
     render() {
          return (
             <div className="list-books-content">
                 <div>
-                    {this.props.bookShelfTitle.map((bookShelfTitle) => (
-                        <div className="bookshelf" >
-                        <h2 className="bookshelf-title">{this.props.name}</h2>
+                    {this.props.booksShelfTitle.map((booksShelfTitle) => (
+                        <div className="bookshelf" key = {this.props.booksShelfTitle.id}>
+                        <h2 className="bookshelf-title">{this.props.booksShelfTitle.name}</h2>
                         <div className="bookshelf-books">
                         </div>
                         </div>
                     ))}
                 </div>
-            </div>
-            
-         )
-         
+            </div>       
+         )         
      }
 }
 export default BookShelf;

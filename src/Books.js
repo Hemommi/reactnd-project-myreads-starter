@@ -1,16 +1,14 @@
 import React from 'react'
-/*import PropTypes from 'prop-types'*/ 
-/*import BookShelf from './BookShelf.js'*/
+import BookShelf from './BookShelf'
 import './App.css'
 /*import * as BooksAPI from './BooksAPI'*/
 
+
 class Books extends React.Component {
-    /*static propTypes={
-        books: PropTypes.array.isRequired,
-    }*/
+    
     state = {showSearchPage: false}
     render() {
-       /* const {books, onShelf} = this.props */        
+              
         return (
             <div className="app">
             {this.state.showSearchPage ? (
@@ -37,9 +35,17 @@ class Books extends React.Component {
             <div className="list-books">
                 <div className="list-books-title" >
                     <h1>MyRead</h1>
+                </div>  
+                <div className="list-books-content">
+                <booksShelfTitle id="currentlyReading" name= "Currently Reading"/>
+                <booksShelfTitle id= "wantToRead" name= "Want to Read"/>
+                <booksShelfTitle id= "read" name= "Read"/>
                 </div>
             </div>
-        )}
+            )}           
+            <div className="open-search">
+              <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
+            </div>
         </div>
         )
     }
