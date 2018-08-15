@@ -41,20 +41,20 @@ class ListBooks extends React.Component {
                         <BookShelf 
                             id="currentlyReading" 
                             name= "Currently Reading"
-                            books={this.getCategoryBooks("currentlyReading")}
-                            changeCategory={this.changeCategory}
+                            books={this.props.getCategoryBooks.filter("currentlyReading")}
+                            changeShelf={this.changeCategory}
                         />
                         <BookShelf 
                             id= "wantToRead" 
                             name= "Want to Read"
-                            books={this.getCategoryBooks("wantToRead")}
-                            changeCategory={this.changeCategory}
+                            books={this.props.getCategoryBooks.filter("wantToRead")}
+                            changeShelf={this.changeCategory}
                         />
                         <BookShelf 
                             id= "read" 
                             name= "Read"
-                            books={this.getCategoryBooks("read")}
-                            changeCategory={this.changeCategory}
+                            books={this.props.getCategoryBooks.filter("read")}
+                            changeShelf={this.changeCategory}
                         />
                     </div>
                 </div>
