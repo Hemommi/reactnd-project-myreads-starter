@@ -25,6 +25,10 @@ class BooksApp extends React.Component {
       })
   }
 
+  getCategoryBooks(name){
+    return this.state.allBooks.filter((book) => book.shelf === name)
+  }
+
   render() {
     return (
       <div className="app">

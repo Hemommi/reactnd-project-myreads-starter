@@ -1,7 +1,7 @@
 import React from 'react'
 import BookShelf from './BookShelf'
 import './App.css'
-/*import * as BooksAPI from './BooksAPI'*/
+import * as BooksAPI from './BooksAPI'
 
 
 class ListBooks extends React.Component {
@@ -41,19 +41,19 @@ class ListBooks extends React.Component {
                         <BookShelf 
                             id="currentlyReading" 
                             name= "Currently Reading"
-                            books={this.getCurrentCategoryBooks("currentlyReading")}
+                            books={this.getCategoryBooks("currentlyReading")}
                             changeCategory={this.changeCategory}
                         />
                         <BookShelf 
                             id= "wantToRead" 
                             name= "Want to Read"
-                            book={this.getCurrentCategoryBooks("wantToRead")}
+                            books={this.getCategoryBooks("wantToRead")}
                             changeCategory={this.changeCategory}
                         />
                         <BookShelf 
                             id= "read" 
                             name= "Read"
-                            books={this.getCurrentCategoryBooks("read")}
+                            books={this.getCategoryBooks("read")}
                             changeCategory={this.changeCategory}
                         />
                     </div>
