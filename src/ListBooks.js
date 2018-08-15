@@ -37,9 +37,26 @@ class ListBooks extends React.Component {
                     <h1>MyRead</h1>
                 </div>  
                 <div className="list-books-content">
-                <bookShelfTitle id="currentlyReading" name= "Currently Reading"/>
-                <bookShelfTitle id= "wantToRead" name= "Want to Read"/>
-                <bookShelfTitle id= "read" name= "Read"/>
+                    <div>
+                        <BookShelf 
+                            id="currentlyReading" 
+                            name= "Currently Reading"
+                            books={this.getCurrentCategoryBooks("currentlyReading")}
+                            changeCategory={this.changeCategory}
+                        />
+                        <BookShelf 
+                            id= "wantToRead" 
+                            name= "Want to Read"
+                            book={this.getCurrentCategoryBooks("wantToRead")}
+                            changeCategory={this.changeCategory}
+                        />
+                        <BookShelf 
+                            id= "read" 
+                            name= "Read"
+                            books={this.getCurrentCategoryBooks("read")}
+                            changeCategory={this.changeCategory}
+                        />
+                    </div>
                 </div>
             </div>
             )}           
