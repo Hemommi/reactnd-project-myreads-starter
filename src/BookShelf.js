@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 /*import Books from './Books'*/
 /*import * as BooksAPI from './BooksAPI'*/
 
-const booksShelfTitle = [
+const bookShelfTitle = [
     {
     id:"currentlyReading", 
     name: "Currently Reading"
@@ -29,9 +29,9 @@ class BookShelf extends React.Component {
          return (
             <div className="list-books-content">
                 <div>
-                    {this.props.booksShelfTitle.map((booksShelfTitle) => (
-                        <div className="bookshelf" key = {this.props.booksShelfTitle.id}>
-                        <h2 className="bookshelf-title">{this.props.booksShelfTitle.name}</h2>
+                    {this.props.bookShelfTitle.map((bookShelfTitle) => (
+                        <div className="bookshelf" key = {this.props.id}>
+                        <h2 className="bookshelf-title">{this.props.name}</h2>
                         <div className="bookshelf-books">
                         </div>
                         </div>

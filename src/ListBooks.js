@@ -4,7 +4,7 @@ import './App.css'
 /*import * as BooksAPI from './BooksAPI'*/
 
 
-class Books extends React.Component {
+class ListBooks extends React.Component {
     
     state = {showSearchPage: false}
     render() {
@@ -37,9 +37,9 @@ class Books extends React.Component {
                     <h1>MyRead</h1>
                 </div>  
                 <div className="list-books-content">
-                <booksShelfTitle id="currentlyReading" name= "Currently Reading"/>
-                <booksShelfTitle id= "wantToRead" name= "Want to Read"/>
-                <booksShelfTitle id= "read" name= "Read"/>
+                <bookShelfTitle id="currentlyReading" name= "Currently Reading"/>
+                <bookShelfTitle id= "wantToRead" name= "Want to Read"/>
+                <bookShelfTitle id= "read" name= "Read"/>
                 </div>
             </div>
             )}           
@@ -50,4 +50,4 @@ class Books extends React.Component {
         )
     }
 }
-export default Books;
+export default ListBooks;
