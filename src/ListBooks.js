@@ -39,17 +39,13 @@ class ListBooks extends React.Component {
                             id="currentlyReading" 
                             name= "Currently Reading"
                         />
-                   {/*      <BookShelf 
+                        <BookShelf 
                             id= "wantToRead" 
                             name= "Want to Read"
-                            books={this.props.getCategoryBooks.filter("wantToRead")}
-                            changeShelf={this.changeCategory}
                         />
                         <BookShelf 
                             id= "read" 
-                            name= "Read"
-                            books={this.props.getCategoryBooks.filter("read")}
-                            changeShelf={this.changeCategory} */}
+                            name= "Read" 
                         />
                     </div>
                 </div>
