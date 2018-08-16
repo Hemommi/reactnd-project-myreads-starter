@@ -1,7 +1,7 @@
-import React from 'react'
-import BookShelf from './BookShelf'
-import './App.css'
-import * as BooksAPI from './BooksAPI'
+import React from "react"
+import BookShelf from "./BookShelf"
+import "./App.css"
+import * as BooksAPI from "./BooksAPI"
 
 
 class ListBooks extends React.Component {
@@ -32,19 +32,14 @@ class ListBooks extends React.Component {
             </div>
           </div>
         ) : (
-            <div className="list-books">
-                <div className="list-books-title" >
-                    <h1>MyRead</h1>
-                </div>  
+            <div className="list-books"> 
                 <div className="list-books-content">
                     <div>
                         <BookShelf 
                             id="currentlyReading" 
                             name= "Currently Reading"
-                            books={this.props.getCategoryBooks.filter("currentlyReading")}
-                            changeShelf={this.changeCategory}
                         />
-                        <BookShelf 
+                   {/*      <BookShelf 
                             id= "wantToRead" 
                             name= "Want to Read"
                             books={this.props.getCategoryBooks.filter("wantToRead")}
@@ -54,7 +49,7 @@ class ListBooks extends React.Component {
                             id= "read" 
                             name= "Read"
                             books={this.props.getCategoryBooks.filter("read")}
-                            changeShelf={this.changeCategory}
+                            changeShelf={this.changeCategory} */}
                         />
                     </div>
                 </div>
