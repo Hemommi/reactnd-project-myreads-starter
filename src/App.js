@@ -1,10 +1,11 @@
-import React from "react"
-import ListBooks from "./ListBooks"
-import * as BooksAPI from "./BooksAPI"
-import "./App.css"
-import BookShelf from "./BookShelf"
-import ListBookTitle from "./ListBookTitle"
-import SearchBooks from "./SearchBooks"
+import React from 'react'
+import ListBooks from './ListBooks'
+import * as BooksAPI from './BooksAPI'
+import './App.css'
+import BookShelf from './BookShelf'
+import ListBookTitle from './ListBookTitle'
+import SearchBooks from './SearchBooks'
+import BookShelfChanger from './BookShelfChanger'
 
 class BooksApp extends React.Component {
   state = {
@@ -36,6 +37,8 @@ class BooksApp extends React.Component {
       });
   }
 
+
+
   render() {
     return (
       <div className="app">
@@ -64,6 +67,8 @@ class BooksApp extends React.Component {
           <div className="list-books">
           <ListBookTitle/>
           <ListBooks booksLoadedOnShelf={this.state.books}/>
+          
+          
 
           <div className="list-books-content">
               <div>
