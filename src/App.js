@@ -4,6 +4,8 @@ import * as BooksAPI from "./BooksAPI"
 import "./App.css"
 import BookShelf from "./BookShelf"
 import ListBookTitle from "./ListBookTitle"
+import SearchBooks from "./SearchBooks"
+
 class BooksApp extends React.Component {
   state = {
     books:[]
@@ -25,7 +27,7 @@ class BooksApp extends React.Component {
       });
   }
 
-  getCategoryBooks() {
+  booksLoadedOnShelf() {
     BooksAPI.getAll()
       .then(data => {
         this.setState({
@@ -61,12 +63,9 @@ class BooksApp extends React.Component {
         ) : (
           <div className="list-books">
           <ListBookTitle/>
-          <ListBooks/>
+          <ListBooks booksLoadedOnShelf={this.state.books}/>
 
-          
-
-          
-            <div className="list-books-content">
+          <div className="list-books-content">
               <div>
                 <div className="bookshelf">
                   <h2 className="bookshelf-title">Currently Reading</h2>

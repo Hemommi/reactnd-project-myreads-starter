@@ -2,15 +2,15 @@ import React from 'react'
 import './App.css'
 import PropTypes from 'prop-types'
 
-/*import ListBooks from './ListBooks'*/
+import ListBooks from './ListBooks'
 /*import * as BooksAPI from './BooksAPI'*/
 
 class BookShelf extends React.Component {
     static propTypes={
-        books: PropTypes.array.isRequired,
+        book: PropTypes.array.isRequired,
     }
     state = {};
-    /* const {books, onShelf} = this.props */ 
+   /* const {books, onShelf} = this.props */
     render() {
 
          return (
@@ -18,7 +18,8 @@ class BookShelf extends React.Component {
                     <h2 className="bookshelf-title">{this.props.name}</h2>
                         <div className="bookshelf-books">
                             <ol className="books-grid">
-                            <li className="book">
+                                {this.props.books.map((book) =>(
+                            <li className="book" key={book.id}>
                                 <div className="book-top">
                                 <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: 'url("http://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73-GnPVEyb7MOCxDzOYF1PTQRuf6nCss9LMNOSWBpxBrz8Pm2_mFtWMMg_Y1dx92HT7cUoQBeSWjs3oEztBVhUeDFQX6-tWlWz1-feexS0mlJPjotcwFqAg6hBYDXuK_bkyHD-y&source=gbs_api")' }}></div>
                             <div className="book-shelf-changer">
@@ -34,7 +35,7 @@ class BookShelf extends React.Component {
                             <div className="book-authors">Harper Lee</div>
                                 </div>
                             </li>
-                            
+                                 ))}
                             </ol>
                         </div>
                 </div>     

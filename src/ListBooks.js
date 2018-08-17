@@ -2,10 +2,16 @@ import React from "react"
 import BookShelf from "./BookShelf"
 import "./App.css"
 import * as BooksAPI from "./BooksAPI"
+import PropTypes from 'prop-types'
+
 
 
 class ListBooks extends React.Component {
     
+    static propTypes = {
+        books: PropTypes.array.isRequired
+    }
+
     state = {showSearchPage: false}
     render() {
               
@@ -38,14 +44,17 @@ class ListBooks extends React.Component {
                         <BookShelf 
                             id="currentlyReading" 
                             name= "Currently Reading"
+                            books= {this.props.booksLoadedOnShelf.filter(book => book.shelf === "currentlyReading")}
                         />
                         <BookShelf 
                             id= "wantToRead" 
                             name= "Want to Read"
+                            books= {this.props.booksLoadedOnShelf.filter(book => book.shelf === "wantToRead")}
                         />
                         <BookShelf 
                             id= "read" 
                             name= "Read" 
+                            books= {this.props.booksLoadedOnShelf.filter(book => book.shelf === "read")}
                         />
                     </div>
                 </div>
