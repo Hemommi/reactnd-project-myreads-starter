@@ -4,8 +4,7 @@ import * as BooksAPI from './BooksAPI'
 
 class BookShelfChanger extends React.Component {
     static propTypes={
-        book: PropTypes.object.isRequired,
-        bookShelfChange: PropTypes.func.isRequired
+        book: PropTypes.object.isRequired
     }
     state={}
     
