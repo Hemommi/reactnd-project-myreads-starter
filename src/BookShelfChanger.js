@@ -8,19 +8,6 @@ class BookShelfChanger extends React.Component {
         bookShelfChange: PropTypes.func.isRequired
     }
     state={}
-
-   /* bookShelfChange = (bookId, event) => {
-        let temporaryShelf = this.props.putOnShelf
-        const book = temporaryShelf.filter(bookId)
-        book.shelf = event.target.value
-        book.shelf = putOnShelf.shelf
-        BooksAPI.update(book, event.target.value)
-            .then(response => {
-            this.setState({
-                 book: temporaryShelf
-            });
-        });
-    }*/
     
     render() {
         return (

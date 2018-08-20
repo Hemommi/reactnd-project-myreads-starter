@@ -4,6 +4,7 @@ import './App.css'
 import * as BooksAPI from './BooksAPI'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+/*import SearchBooks from './SearchBooks'*/
 
 class ListBooks extends React.Component {
     
@@ -11,18 +12,6 @@ class ListBooks extends React.Component {
         books: PropTypes.array.isRequired
     }
         state = false; 
-    
-      /* bookShelfChange = (bookId, event) => {
-            let temporaryShelf = this.props.putOnShelf
-            const book = temporaryShelf.filter(bookId)
-            book.shelf = event.target.value
-            BooksAPI.update(book, event.target.value)
-                .then(response => {
-                this.setState({
-                     book: temporaryShelf
-                });
-            });
-        }*/
 
     render() {
         return (
@@ -73,9 +62,12 @@ class ListBooks extends React.Component {
                 </div>
             </div>
             )}           
-          {/*   <div className="open-search">
-              <Link to='/search'>Add a book</Link>
-            </div> */}
+            <div>
+            <Link 
+                to='/searchBooks'
+                className="open-search">
+            </Link>
+            </div> 
         </div>
         )
     }
