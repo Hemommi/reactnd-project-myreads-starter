@@ -10,10 +10,13 @@ import sortBy from 'sort-by'
 class SearchBooks extends React.Component {
   state = {
     books: [],
-    query:''
+    query:'',
+    showSearchPage: false
   }
   static propTypes = {
-    books: PropTypes.array.isRequired
+    books: PropTypes.array.isRequired,
+    bookShelfChange: PropTypes.func.isRequired,
+    showSearchPage: PropTypes.bool.isRequired
 }
 
   updateQuery = (query) => {

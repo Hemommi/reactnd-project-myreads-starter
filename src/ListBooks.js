@@ -9,7 +9,8 @@ import { Link } from 'react-router-dom'
 class ListBooks extends React.Component {
     
     static propTypes = {
-        books: PropTypes.array.isRequired
+        books: PropTypes.array.isRequired,
+        bookShelfChange: PropTypes.func.isRequired
     }
         state = false; 
 
