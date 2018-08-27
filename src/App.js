@@ -37,22 +37,28 @@ class BooksApp extends React.Component {
       });
   }
 
-  bookShelfChange= (book, shelf) => {
+  bookShelfChange = (book, shelf) => {
     BooksAPI.update(book, shelf)
       .then(response => {
        this.booksLoadedOnShelf();
       });
   }
 
+  closeSearch = () => {
+      this.setState({
+      showSearchPage:false
+    });
+  }
+
   render() {
     return (
       <div className="app">
         {this.state.showSearchPage ? (
-        /*   <Route path='/searchBooks' render={() => ( */
+        /*   <Route path='/search' render={() => ( */
             <SearchBooks
               books={this.state.books}
               bookShelfChange={this.bookShelfChange}
-              showSearchPage = {this.state.showSearchPage}
+              closeSearch={this.closeSearch}
             />
          /*  )}/> */
         ) : (
@@ -66,10 +72,9 @@ class BooksApp extends React.Component {
               bookShelfChange={this.bookShelfChange}
             />
           )}/>
-         
-            <div className="open-search">
-              <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
-            </div>
+          <div className="open-search">
+            <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
+          </div>
           </div>
         )}
      </div>

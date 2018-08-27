@@ -11,13 +11,13 @@ class SearchBooks extends React.Component {
   state = {
     books: [],
     query:'',
-    showSearchPage: false
+    localShowSearchPage: false
   }
   static propTypes = {
     books: PropTypes.array.isRequired,
     bookShelfChange: PropTypes.func.isRequired,
-    showSearchPage: PropTypes.bool.isRequired
-}
+    closeSearch: PropTypes.func.isRequired
+  }
 
   updateQuery = (query) => {
     this.setState({ query: query.trim() })
@@ -35,9 +35,9 @@ class SearchBooks extends React.Component {
         showingBooks.sort(sortBy('title'))
 
         return (
-            <div className="search-books">
+          <div className="search-books">
             <div className="search-books-bar">
-            <a className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</a>
+            <a className="close-search"  onClick={() => this.props.closeSearch()}>Close</a>
               <div className="search-books-input-wrapper">
                 <input 
                   type="text" 
@@ -64,7 +64,7 @@ class SearchBooks extends React.Component {
                   ))}
               </ol>
             </div>
-        </div>
+          </div>
         )
     }
 }
