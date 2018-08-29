@@ -5,7 +5,7 @@ class ListBookTitle extends React.Component {
         return (
             <div className="list-books">
                 <div className="list-books-title" >
-                    <h1>My Reads</h1>
+                    <h1>MY READS</h1>
                 </div>
             </div>  
         )
