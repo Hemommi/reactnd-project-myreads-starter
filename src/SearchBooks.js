@@ -2,10 +2,10 @@ import React from 'react'
 import './App.css'
 import * as BooksAPI from './BooksAPI'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 import BookShelfChanger from './BookShelfChanger'
 import escapeRegExp from 'escape-string-regexp'
 import sortBy from 'sort-by'
+import { Link } from 'react-router-dom'
 
 class SearchBooks extends React.Component {
   state = {
@@ -16,7 +16,7 @@ class SearchBooks extends React.Component {
   static propTypes = {
     books: PropTypes.array.isRequired,
     bookShelfChange: PropTypes.func.isRequired,
-    closeSearch: PropTypes.func.isRequired
+    closeSearch: PropTypes.func.isRequired 
   }
 
   updateQuery = (query) => {
@@ -37,7 +37,7 @@ class SearchBooks extends React.Component {
         return (
           <div className="search-books">
             <div className="search-books-bar">
-            <a className="close-search"  onClick={() => this.props.closeSearch()}>Close</a>
+              <Link to="/" className="close-search"  onClick={() => this.props.closeSearch()}>Close</Link> 
               <div className="search-books-input-wrapper">
                 <input 
                   type="text" 

@@ -4,7 +4,6 @@ import './App.css'
 import * as BooksAPI from './BooksAPI'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-/*import SearchBooks from './SearchBooks'*/
 
 class ListBooks extends React.Component {
     
@@ -39,8 +38,8 @@ class ListBooks extends React.Component {
                         /> 
                     </div>
                     <div className="open-search">
-                        <Link to='/search'>Add a book</Link>
-                    </div> 
+                        <Link to="/search">Add a book</Link>
+                    </div>  
                 </div>
             </div>          
             
