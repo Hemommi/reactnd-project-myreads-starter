@@ -9,7 +9,7 @@ class BookShelf extends React.Component {
         books: PropTypes.array.isRequired,
         bookShelfChange: PropTypes.func.isRequired
     }
-    state = {}
+    
     render() {
         return (
             <div className="bookshelf">

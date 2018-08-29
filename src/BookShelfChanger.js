@@ -8,8 +8,6 @@ class BookShelfChanger extends React.Component {
         bookShelfChange: PropTypes.func.isRequired
     }
     
-    state={}
-    
     render() {
         return (
             <div className="book-shelf-changer">
