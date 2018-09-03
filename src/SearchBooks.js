@@ -11,28 +11,46 @@ class SearchBooks extends React.Component {
   state = {
     books: [],
     query:'',
-    localShowSearchPage: false
+    localShowSearchPage: false,
+    showingBooks: []
   }
   static propTypes = {
     books: PropTypes.array.isRequired,
     bookShelfChange: PropTypes.func.isRequired,
-    closeSearch: PropTypes.func.isRequired 
+    closeSearch: PropTypes.func.isRequired
+    
   }
 
   updateQuery = (query) => {
-    this.setState({ query: query })
+    this.setState({ query: query });
+    this.searchBooks(query) ;
+  } 
+
+  searchBooks(query) {
+    BooksAPI.search(query) 
+      .then(serverBooks => {
+        if(serverBooks) {
+          this.setState({
+            showingBooks: serverBooks
+        });
+      } else {
+          this.setState({
+            showingBooks: []
+        })
+      } 
+    })
   }
 
     render() {
-      let showingBooks
+        /* let showingBooks; 
         if(this.state.query) {
-          const match = new RegExp(escapeRegExp(this.state.query), 'i')
+          const match = new RegExp(escapeRegExp(this.state.query), 'i') 
           showingBooks = this.props.books.filter((books) => match.test(books.title))
         }else{
           showingBooks = this.props.books
         }
-
-        showingBooks.sort(sortBy('title'))
+ */
+        /* showingBooks.sort(sortBy('title')) */
 
         return (
           <div className="search-books">
@@ -49,7 +67,7 @@ class SearchBooks extends React.Component {
             </div>
             <div className="search-books-results">
               <ol className="books-grid">
-                {showingBooks.map((book) =>(
+                {this.state.showingBooks.map((book) =>(
                   <li className="book" key={book.id}>
                     <div className="book-top">
                       <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${book.imageLinks.thumbnail}")`}}></div>
