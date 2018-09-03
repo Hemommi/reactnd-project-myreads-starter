@@ -29,7 +29,7 @@ class SearchBooks extends React.Component {
   searchBooks(query) {
     BooksAPI.search(query) 
       .then(serverBooks => {
-        if(serverBooks) {
+        if(Array.isArray(serverBooks)) {
           this.setState({
             showingBooks: serverBooks
         });
@@ -40,18 +40,7 @@ class SearchBooks extends React.Component {
       } 
     })
   }
-
     render() {
-        /* let showingBooks; 
-        if(this.state.query) {
-          const match = new RegExp(escapeRegExp(this.state.query), 'i') 
-          showingBooks = this.props.books.filter((books) => match.test(books.title))
-        }else{
-          showingBooks = this.props.books
-        }
- */
-        /* showingBooks.sort(sortBy('title')) */
-
         return (
           <div className="search-books">
             <div className="search-books-bar">
@@ -70,7 +59,7 @@ class SearchBooks extends React.Component {
                 {this.state.showingBooks.map((book) =>(
                   <li className="book" key={book.id}>
                     <div className="book-top">
-                      <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${book.imageLinks.thumbnail}")`}}></div>
+                      <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${book.imageLinks ? book.imageLinks.thumbnail: "none"}")`}}></div>
                         <BookShelfChanger
                           book = {book}
                           bookShelfChange = {this.props.bookShelfChange}

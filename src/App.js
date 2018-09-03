@@ -51,7 +51,6 @@ class BooksApp extends React.Component {
             books={this.state.books}
             bookShelfChange={this.bookShelfChange}
             closeSearch={this.closeSearch} 
-         
           />
           )}/>
           <div className="list-books">

@@ -19,7 +19,11 @@ class BookShelf extends React.Component {
                             {this.props.books.map((book) =>(
                                 <li className="book" key={book.id}>
                                     <div className="book-top">
+                                    {book.imageLinks ? ( 
                                     <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${book.imageLinks.thumbnail}")`}}></div>
+                                     ) : (
+                                    <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: "none"}}></div>  
+                                    )} 
                                     <BookShelfChanger
                                         book = {book}
                                         bookShelfChange = {this.props.bookShelfChange}
