@@ -1,7 +1,6 @@
 import React from 'react'
 import BookShelf from './BookShelf'
 import './App.css'
-import * as BooksAPI from './BooksAPI'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 

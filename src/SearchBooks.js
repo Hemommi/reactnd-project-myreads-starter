@@ -3,33 +3,39 @@ import './App.css'
 import * as BooksAPI from './BooksAPI'
 import PropTypes from 'prop-types'
 import BookShelfChanger from './BookShelfChanger'
-import escapeRegExp from 'escape-string-regexp'
-import sortBy from 'sort-by'
 import { Link } from 'react-router-dom'
 
 class SearchBooks extends React.Component {
   state = {
-    books: [],
     query:'',
     localShowSearchPage: false,
-    showingBooks: []
+    showingBooks: [],
   }
   static propTypes = {
-    books: PropTypes.array.isRequired,
     bookShelfChange: PropTypes.func.isRequired,
-    closeSearch: PropTypes.func.isRequired
-    
+    closeSearch: PropTypes.func.isRequired    
   }
 
   updateQuery = (query) => {
     this.setState({ query: query });
     this.searchBooks(query) ;
-  } 
+  }
 
   searchBooks(query) {
     BooksAPI.search(query) 
       .then(serverBooks => {
         if(Array.isArray(serverBooks)) {
+          serverBooks.map(serverBook => {
+            var foundBook = this.props.books.find(book => {
+              return book.id === serverBook.id;
+            });
+
+            if(foundBook === undefined){
+              serverBook.shelf = "none";
+            } else {
+              serverBook.shelf = foundBook.shelf;
+            }
+          })
           this.setState({
             showingBooks: serverBooks
         });
@@ -37,7 +43,7 @@ class SearchBooks extends React.Component {
           this.setState({
             showingBooks: []
         })
-      } 
+      }
     })
   }
     render() {

@@ -63,7 +63,7 @@ class BooksApp extends React.Component {
               bookShelfChange={this.bookShelfChange}
             />
           )}/>
-          </div>   
+          </div>
       </div>
     )
   }
