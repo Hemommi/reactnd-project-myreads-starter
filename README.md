@@ -19,5 +19,6 @@ Project contains three bookshelf categories: Read, Want to Read, Currently Readi
 * React Router
 * ES6
 
-![Img](images/img.png)
+## ![Img](images/img.png)
+
 ![Img](images/img1.png)
